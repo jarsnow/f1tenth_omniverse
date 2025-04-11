@@ -14,7 +14,7 @@ class TLNNode(Node):
         self.scan_subscription = self.create_subscription(LaserScan, '/scan', self.scan_callback, 10)
         self.get_logger().info('TLNNode has been started.')
 
-        self.model_path = "/home/r478a194/Downloads/f1_tenth_model_small_noquantized.tflite"
+        self.model_path = "../f1_tenth_model_small_noquantized.tflite"
         self.interpreter = tf.lite.Interpreter(model_path=self.model_path)
         self.interpreter.allocate_tensors()
         self.input_index = self.interpreter.get_input_details()[0]["index"]
